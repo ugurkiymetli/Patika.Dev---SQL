@@ -2,7 +2,7 @@
 # Patika.Dev SQL Ödevleri
 <a href='#Ödev 1'>Ödev 1</a><br>
 <a href='#Ödev 2'>Ödev 2</a><br>
-
+<a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
 
@@ -80,4 +80,20 @@ AND replacement_cost IN (12.99, 15.99, 28.99 ) ;
 ```
 
 ---
+
+### <p id = 'Notlar'> Notlar </p>
+- LIKE ve ILIKE kullanımı
+    - *%* operatörü birden fazla karakter için yer tutucu işlevi görür.
+    - *_* ise bir adet karakter için yer tutucu görevi görür.  
+    
+
+| LIKE operatörü                |   Açıklama                                                                         |
+| -----------                   |   -----------                                                       |
+|WHERE CustomerName LIKE 'a%'   |	"a" ile başlayan bütün değerleri bulur.                         |
+|WHERE CustomerName LIKE '%a'   |	"a" ile biten bütün değerleri bulur.                            |
+|WHERE CustomerName LIKE '%or%' |	İçinde "or" bulunan bütün değerleri bulur.                      |
+|WHERE CustomerName LIKE '_r%'  |	İkinci karakteri "r" olan bütün değerleri bulur.                |
+|WHERE CustomerName LIKE 'a_%'  |	"a" ile başlayan ve en az 2 karakter olan bütün değerleri bulur.|
+|WHERE CustomerName LIKE 'a__%' |	"a" ile başlayan ve en az 3 karakter olan bütün değerleri bulur.|
+|WHERE ContactName LIKE 'a%o'   |	"a" ile başlayan ve "o" ile biten bütün değerleri bulur.        |
 
