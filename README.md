@@ -2,6 +2,7 @@
 # Patika.Dev SQL Ödevleri
 <a href='#Ödev 1'>Ödev 1</a><br>
 <a href='#Ödev 2'>Ödev 2</a><br>
+<a href='#Ödev 3'>Ödev 3</a><br>
 <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -52,7 +53,7 @@ WHERE NOT length > 50 AND NOT (rental_rate = 2.99 or rental_rate = 4.99);
 
 ---
 
-## <p id = 'Ödev 2' > Ödev 2 </p> 
+## <p id = 'Ödev 2' > Ödev 2 </p>
 1.`film` tablosunda bulunan tüm sütunlardaki verileri `replacement_cost` değeri 12.99'dan *büyük eşit*  **VE** 16.99'dan *küçük* olma koşuluyla sıralayınız ( *BETWEEN - AND yapısını kullanınız.*)
 
 ```sql
@@ -80,6 +81,44 @@ AND replacement_cost IN (12.99, 15.99, 28.99 ) ;
 ```
 
 ---
+
+## <p id = 'Ödev 3' > Ödev 3 </p>
+1.`country` tablosunda bulunan `country` sütunundaki ülke isimlerinden 'A' karakteri ile *başlayıp* 'a' karakteri ile *sonlananları* sıralayınız.
+```sql
+SELECT  * FROM country
+WHERE country LIKE 'A%a'; 
+```
+
+---
+
+2.`country` tablosunda bulunan `country` sütunundaki ülke isimlerinden en az *6* karakterden oluşan *ve* sonu 'n' karakteri ile *sonlananları* sıralayınız.
+```sql
+SELECT  * FROM country
+WHERE country LIKE '______%n'; 
+```
+
+---
+
+3.`film` tablosunda bulunan `title` sütunundaki film isimlerinden en az *4* adet büyük ya da küçük harf farketmesizin 'T' karakteri içeren film isimlerini sıralayınız.
+```sql
+SELECT  * FROM film
+WHERE title ILIKE '%T%T%T%T%'; 
+```
+
+---
+
+4.`film` tablosunda bulunan tüm sütunlardaki verilerden `title` 'C' karakteri ile başlayan ve uzunluğu (`length`) 90 dan *büyük* olan ve `rental_rate` 2.99 olan verileri sıralayınız.
+```sql
+SELECT  * FROM film
+WHERE title LIKE 'C%' 
+	AND length > 90
+	AND rental_rate = 2.99; 
+```
+
+---
+
+
+
 
 ### <p id = 'Notlar'> Notlar </p>
 - LIKE ve ILIKE kullanımı
