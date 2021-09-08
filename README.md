@@ -1,2 +1,1 @@
-# Patika.Dev---SQL
-patika.dev SQL ödevleri.
+# Patika.Dev SQL Ödevleri 
