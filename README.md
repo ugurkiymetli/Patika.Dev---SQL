@@ -83,17 +83,23 @@ AND replacement_cost IN (12.99, 15.99, 28.99 ) ;
 
 ### <p id = 'Notlar'> Notlar </p>
 - LIKE ve ILIKE kullanımı
-    - *%* operatörü birden fazla karakter için yer tutucu işlevi görür.
-    - *_* ise bir adet karakter için yer tutucu görevi görür.  
-    
+    - *%* operatörü sıfır veya birden fazla karakter için yer tutucu işlevi görür.
+    - *_* operatörü bir adet karakter için yer tutucu görevi görür.  
+    - *[ ]* operatörü parantez içindeki karakter listesi için yer tutucu görevi görür.
+    - *!* operatörü parantez içindeki karakter listesi dışındakiler için yer tutucu görevi görür.
+    - *#* operatörü bir adet numerik karakter için yer tutucu görevi görür.
 
-| LIKE operatörü                |   Açıklama                                                                         |
-| -----------                   |   -----------                                                       |
-|WHERE CustomerName LIKE 'a%'   |	"a" ile başlayan bütün değerleri bulur.                         |
-|WHERE CustomerName LIKE '%a'   |	"a" ile biten bütün değerleri bulur.                            |
-|WHERE CustomerName LIKE '%or%' |	İçinde "or" bulunan bütün değerleri bulur.                      |
-|WHERE CustomerName LIKE '_r%'  |	İkinci karakteri "r" olan bütün değerleri bulur.                |
-|WHERE CustomerName LIKE 'a_%'  |	"a" ile başlayan ve en az 2 karakter olan bütün değerleri bulur.|
-|WHERE CustomerName LIKE 'a__%' |	"a" ile başlayan ve en az 3 karakter olan bütün değerleri bulur.|
-|WHERE ContactName LIKE 'a%o'   |	"a" ile başlayan ve "o" ile biten bütün değerleri bulur.        |
+| LIKE operatörü                |   Açıklama                                                            |
+| -----------                   |   -----------                                                         |
+|WHERE Column1 LIKE 'a%'        |	"a" ile başlayan bütün değerleri bulur.                             |
+|WHERE Column1 LIKE '%a'        |	"a" ile biten bütün değerleri bulur.                                |
+|WHERE Column1 LIKE '%or%'      |	İçinde "or" bulunan bütün değerleri bulur.                          |
+|WHERE Column1 LIKE '_r%'       |	İkinci karakteri "r" olan bütün değerleri bulur.                    |
+|WHERE Column1 LIKE 'a_%'       |	"a" ile başlayan ve en az 2 karakter olan bütün değerleri bulur.    |
+|WHERE Column1 LIKE 'a__%'      |	"a" ile başlayan ve en az 3 karakter olan bütün değerleri bulur.    |
+|WHERE Column1 LIKE 'a%o'       |	"a" ile başlayan ve "o" ile biten bütün değerleri bulur.            |
+|WHERE Column1 LIKE 'h[oa]t'    |   hot, hat değerlerini bulur. (hit değerini getirmez!)                |
+|WHERE Column1 LIKE 'c[a-c]t'   |   cat, cbt, cct, değerlerini bulur.                                   |
+
+
 
