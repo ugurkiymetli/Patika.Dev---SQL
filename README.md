@@ -6,6 +6,7 @@
 <a href='#Ödev 4'>Ödev 4</a><br>
 <a href='#Ödev 5'>Ödev 5</a><br>
 <a href='#Ödev 6'>Ödev 6</a><br>
+<a href='#Ödev 7'>Ödev 7</a><br>
 <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -230,6 +231,50 @@ WHERE length > 150;
 ```
 
 ---
+
+## <p id = 'Ödev 7' > Ödev 7 </p> 
+
+1.`film` tablosunda bulunan filmleri `rating` değerlerine göre *gruplayınız*.
+
+```sql
+SELECT rating FROM film
+GROUP BY rating; 
+```
+
+---
+
+2.`film` tablosunda bulunan filmleri `replacement_cost` sütununa göre grupladığımızda *film sayısı 50'den fazla* olan `replacement_cost` değerini ve karşılık gelen film sayısını sıralayınız.
+
+```sql
+SELECT replacement_cost,COUNT(*) 
+FROM film
+GROUP BY replacement_cost
+HAVING COUNT(*) > 50; 
+```
+
+---
+
+3.`customer` tablosunda bulunan `store_id` değerlerine karşılık gelen *müşteri sayıları* nelerdir?
+
+```sql
+SELECT store_id, COUNT(*) 
+FROM customer
+GROUP BY store_id;  
+```
+
+---
+
+4.`city` tablosunda bulunan şehir verilerini `country_id` sütununa göre *gruplandırdıktan* sonra *en fazla şehir* sayısı barındıran `country_id` bilgisini ve şehir sayısını paylaşınız.
+
+```sql
+SELECT country_id, COUNT(city) FROM city
+GROUP BY country_id
+ORDER BY COUNT(*) DESC
+LIMIT 1 ;  
+```
+
+---
+
 
 ### <p id = 'Notlar'> Notlar </p>
 - LIKE ve ILIKE kullanımı
