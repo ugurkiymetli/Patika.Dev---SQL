@@ -4,6 +4,7 @@
 <a href='#Ödev 2'>Ödev 2</a><br>
 <a href='#Ödev 3'>Ödev 3</a><br>
 <a href='#Ödev 4'>Ödev 4</a><br>
+<a href='#Ödev 5'>Ödev 5</a><br>
 <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -158,6 +159,40 @@ WHERE city LIKE '%r';
 
 ---
 
+## <p id = 'Ödev 5' > Ödev 5 </p> 
+1.`film` tablosunda bulunan ve film ismi (`title`) 'n' karakteri ile biten *en uzun* (`length`) 5 filmi sıralayınız.
+
+```sql
+SELECT * FROM film
+WHERE title LIKE '%n'
+ORDER BY length DESC
+LIMIT 5; 
+```
+
+---
+
+2.`film` tablosunda bulunan ve film ismi (`title`) 'n' karakteri ile biten *en kısa* (`length`) ikinci 5 filmi sıralayınız.
+
+```sql
+SELECT * FROM film
+WHERE title LIKE '%n'
+ORDER BY length
+LIMIT 5; 
+```
+
+---
+
+3.`customer` tablosunda bulunan `last_name` sütununa göre *azalan* yapılan sıralamada *store_id = 1* olmak koşuluyla *ilk 4* veriyi sıralayınız.
+
+```sql
+SELECT * FROM customer
+WHERE store_id = 1
+ORDER BY last_name DESC
+LIMIT 4; 
+```
+
+---
+
 ### <p id = 'Notlar'> Notlar </p>
 - LIKE ve ILIKE kullanımı
     - *%* operatörü sıfır veya birden fazla karakter için yer tutucu işlevi görür.
@@ -178,5 +213,7 @@ WHERE city LIKE '%r';
 |WHERE Column1 LIKE 'h[oa]t'    |   hot, hat değerlerini bulur. (hit değerini getirmez!)                |
 |WHERE Column1 LIKE 'c[a-c]t'   |   cat, cbt, cct, değerlerini bulur.                                   |
 
+- LIMIT ve OFFSET
+    - OFFSET ekranda sayfada görüntülenecek ürün miktarını belirleyebilir. ([pagination](https://www.petefreitag.com/item/451.cfm))
 
 
