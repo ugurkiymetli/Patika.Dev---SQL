@@ -8,6 +8,7 @@
 <a href='#Ödev 6'>Ödev 6</a><br>
 <a href='#Ödev 7'>Ödev 7</a><br>
 <a href='#Ödev 8'>Ödev 8</a><br>
+<a href='#Ödev 9'>Ödev 9</a><br>
 <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -337,6 +338,36 @@ birthday < '2000-01-01';
 DELETE FROM employee 
 WHERE email LIKE 'a%' AND
 birthday BETWEEN '1981-01-01' AND '2004-01-02';
+```
+
+---
+
+## <p id = 'Ödev 9' > Ödev 9 </p> 
+#### Aşağıdaki sorgu senaryolarını `dvdrental` örnek veri tabanı üzerinden gerçekleştiriniz.
+
+1.`city` tablosu ile `country` tablosunda bulunan şehir (`city`) ve ülke (`country`) isimlerini birlikte görebileceğimiz *INNER JOIN* sorgusunu yazınız.
+```sql
+SELECT country, city 
+FROM city
+INNER JOIN country ON city.country_id = country.country_id; 
+```
+
+---
+
+2.`customer` tablosu ile `payment` tablosunda bulunan `payment_id` ile `customer` tablosundaki `first_name` ve `last_name` isimlerini birlikte görebileceğimiz *INNER JOIN* sorgusunu yazınız.
+```sql
+SELECT payment_id, first_name, last_name 
+FROM payment
+INNER JOIN customer ON customer.customer_id = payment.customer_id; 
+```
+
+---
+
+3.`customer` tablosu ile `rental` tablosunda bulunan `rental_id` ile `customer` tablosundaki `first_name` ve `last_name` isimlerini birlikte görebileceğimiz *INNER JOIN* sorgusunu yazınız.
+```sql
+SELECT rental_id, first_name, last_name 
+FROM rental
+INNER JOIN customer ON customer.customer_id = rental.customer_id; 
 ```
 
 ---
