@@ -7,6 +7,7 @@
 <a href='#Ödev 5'>Ödev 5</a><br>
 <a href='#Ödev 6'>Ödev 6</a><br>
 <a href='#Ödev 7'>Ödev 7</a><br>
+<a href='#Ödev 8'>Ödev 8</a><br>
 <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -275,6 +276,70 @@ LIMIT 1 ;
 
 ---
 
+
+## <p id = 'Ödev 8' > Ödev 8 </p> 
+
+1.`test` veritabanınızda `employee` isimli sütun bilgileri `id (INTEGER)`, `name VARCHAR(50)`, `birthday DATE`, `email VARCHAR(100)` olan bir tablo oluşturalım.
+```sql
+CREATE TABLE employee (
+	id INTEGER,
+	name VARCHAR(50), 
+	birthday DATE, 
+	email VARCHAR(100) );
+
+```
+
+---
+
+2.Oluşturduğumuz `employee` tablosuna [_Mockaroo_](https://www.mockaroo.com/) servisini kullanarak 50 adet veri ekleyelim.
+    - [Oluşturulan veri seti.](https://www.mockaroo.com/49c986e0)
+
+---
+
+3.Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+```sql
+UPDATE employee
+SET 
+	name = 'lorem ipsum', 
+	birthday = '1980-01-01', 
+	email = 'lorem@ipsum.com' 
+WHERE id = 1;
+-----------------
+UPDATE employee  
+SET
+	name = 'lorem ipsum',
+	birthday = '1980-01-01',
+	email = 'lorem@ipsum.com'
+WHERE name LIKE 'A%';
+-----------------
+UPDATE employee  
+SET
+	name = 'lorem ipsum',
+	birthday = '1980-01-01',
+	email = 'lorem@ipsum.com'
+WHERE birthday BETWEEN '1990-01-01' AND '1995-01-01'; 
+```
+
+---
+
+4.Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+```sql
+DELETE FROM employee 
+WHERE birthday BETWEEN '1970-01-01' AND '1995-01-01';
+-----------------
+DELETE FROM employee 
+WHERE name LIKE 'A%';
+-----------------
+DELETE FROM employee 
+WHERE name LIKE 'Sa%' AND
+birthday < '2000-01-01';
+-----------------
+DELETE FROM employee 
+WHERE email LIKE 'a%' AND
+birthday BETWEEN '1981-01-01' AND '2004-01-02';
+```
+
+---
 
 ### <p id = 'Notlar'> Notlar </p>
 - LIKE ve ILIKE kullanımı
