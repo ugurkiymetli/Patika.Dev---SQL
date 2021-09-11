@@ -11,6 +11,7 @@
 - <a href='#Ödev 9'>Ödev 9</a><br>
 - <a href='#Ödev 10'>Ödev 10</a><br>
 - <a href='#Ödev 11'>Ödev 11</a><br>
+- <a href='#Ödev 12'>Ödev 12</a><br>
 - <a href='#Notlar' >Notlar</a><br>
 ## <p id = 'Ödev 1' > Ödev 1 </p> 
 1.`film` tablosunda bulunan `title` ve `description` sütunlarındaki verileri sıralayınız.
@@ -445,6 +446,53 @@ INTERSECT
 (SELECT last_name FROM actor)
 EXCEPT    
 (SELECT last_name FROM customer);
+```
+
+---
+
+## <p id = 'Ödev 12' > Ödev 12 </p>
+
+1.`film` tablosunda film uzunluğu `length` sütununda gösterilmektedir. Uzunluğu *ortalama film uzunluğundan fazla* kaç tane film vardır?
+```sql
+SELECT COUNT(*) 
+FROM film
+WHERE length > 
+(SELECT AVG(length) FROM film); 
+```
+
+---
+
+2.`film` tablosunda *en yüksek* `rental_rate` değerine sahip kaç tane film vardır?
+```sql
+SELECT COUNT(*) 
+FROM film
+WHERE rental_rate = 
+(SELECT MAX(rental_rate) FROM film); 
+```
+
+---
+
+3.`film` tablosunda *en düşük* `rental_rate` ve *en düşük* `replacement_cost` değerlerine sahip filmleri sıralayınız.
+```sql
+SELECT COUNT(*)
+FROM film
+WHERE rental_rate = 
+(SELECT MIN(rental_rate) FROM film)
+AND
+replacement_cost =
+(SELECT MIN(replacement_cost ) FROM film); 
+```
+
+---
+
+4.`payment` tablosunda *en fazla* sayıda alışveriş yapan müşterileri(`customer`) sıralayınız.
+```sql
+-- en fazla alışveriş yapan 3 müşteri.
+SELECT customer_id,COUNT(customer_id) AS total_transactions
+FROM payment
+GROUP BY customer_id
+ORDER BY total_transactions DESC
+LIMIT 3;
 ```
 
 ---
