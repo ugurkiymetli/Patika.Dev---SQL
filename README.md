@@ -520,6 +520,17 @@ LIMIT 3;
 - LIMIT ve OFFSET
     - OFFSET ekranda sayfada görüntülenecek ürün miktarını belirleyebilir. ([pagination](https://www.petefreitag.com/item/451.cfm))
 
-
+-	```sql
+	--sayfa sayısı ortalama sayfa sayısından büyük olan kitapları, yazarlarının isimleri ve doğum yılı ile birlikte gösteren sql sorgusu.
+	SELECT 
+	CONCAT(author.first_name, ' ', author.last_name) AS "Full Name", -- yazarın ismini ve soyismini birleştiriyor
+	EXTRACT (YEAR FROM author.birthday) AS "Birth Year of Author", -- date tipinden doğum yılını alıyor.
+	book.title AS "Book Title", book.page_number AS "Page Number of the Book" 
+	FROM book
+	INNER JOIN author ON author.id = author_id --author ve book tabloları, author_id üzerinden bağlanıyor.
+	WHERE book.page_number > 
+	(SELECT AVG(page_number) FROM book) --sayfa sayısı ortalama sayfa sayısından büyük olan kitapları gösteriyor.
+	ORDER BY "Book Title";
+	```
 sayfa dizayn fikri için [PhyeX'e](https://github.com/PhyeX/PatikaDev-SQL) teşekkürler.
 
